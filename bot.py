@@ -21,14 +21,16 @@ def chat_with_gpt(text):
     response_text = response.choices[0].message['content']
     return response_text
 
-def play_enterprise_beep():
+def play_beep():
+    """Play a beep sound"""
     pygame.mixer.init()
-    pygame.mixer.music.load("computerbeep_58.mp3")
+    pygame.mixer.music.load("beep.mp3") # Download something here, for example: https://www.trekcore.com/audio/
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
         time.sleep(0.1)
 
 def recognize_speech(recognizer, microphone):
+    """Returns recognized text"""
     with microphone as source:
         print("Adjusting for ambient noise...")
         recognizer.adjust_for_ambient_noise(source, duration=1)  # Adjust for 1 second of ambient noise
@@ -64,7 +66,7 @@ def main():
         text = recognize_speech(recognizer, microphone)
         if text is not None:
             if text == "computer":
-                play_enterprise_beep()
+                play_beep()
             else:
                 output = chat_with_gpt(text)
                 print(output)
