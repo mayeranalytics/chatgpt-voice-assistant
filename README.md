@@ -1,8 +1,8 @@
-# ChatGPT-assistant
+# ChatGPT Voice Assistant
 
 This is a very simple ChatGPT-based voice assistant.
 
-The voice assistant is a Python script that is run like this:
+The voice assistant is a Python script. Run it like this:
 
 ```bash
 python3 bot.py
@@ -37,6 +37,7 @@ Install the following Python packages
 - `speech_recognition`
 - `pyttsx3`
 - `pygame`
+- Get a beeping sound and name it `beep.mp3`. See above for sources.
 
 Get an [API key](https://help.openai.com/en/collections/3675940-getting-started-with-openai-api) from [OpenAI](https://openai.com) and save the key as `api.key`. Using the API costs [money](https://openai.com/pricing), for a little bit of experimentation the costs are negligible. The `gpt-3.5-turbo` model, which is used here, currently costs $0.002 / 1K tokens. 1K tokens is roughly 700 words.
 
