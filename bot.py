@@ -7,16 +7,16 @@ import time
 import openai
 openai.api_key = open('api.key', 'r').read().strip()    # put your OpenAPI key into the file api.key
 
-def chat_with_gpt(text):
+def chat_with_gpt(question, max_tokens=150):
+    """Ask ChatGPT the question, return the response. Use max_tokens to limit the reponse length."""
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Use the most capable engine available
+        model="gpt-3.5-turbo",  # Most capable OpenAI engine available
         messages=[
             {"role": "system", "content": "You are an assistant that speaks and understands natural language."},
-            {"role": "user", "content": f"{text}"}
+            {"role": "user", "content": f"{question}"}
         ],
-        max_tokens=150,  # Limit the response length
+        max_tokens=max_tokens,  # Limit the response length
     )
-
     # Extract the response text
     response_text = response.choices[0].message['content']
     return response_text
@@ -51,27 +51,30 @@ def recognize_speech(recognizer, microphone):
         return None
 
 def speak(text):
+    """Speaks text"""
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
 
-def main():
+
+if __name__ == "__main__":
+
     recognizer = sr.Recognizer()
     recognizer.energy_threshold = 3000  # Adjust the energy threshold
     recognizer.pause_threshold = 0.5
 
     microphone = sr.Microphone()
 
+    # question-answer loop
     while True:
         text = recognize_speech(recognizer, microphone)
         if text is not None:
             if text == "computer":
                 play_beep()
+            if text == "stop":
+                play_beep()
+                break
             else:
                 output = chat_with_gpt(text)
                 print(output)
                 speak(output)
-
-if __name__ == "__main__":
-    main()
-
