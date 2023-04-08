@@ -106,6 +106,9 @@ if __name__ == "__main__":
         except sr.exceptions.WaitTimeoutError:
             print("Nothing heard...")
             continue
+        except KeyboardInterrupt:
+            print("Stop")
+            break
         if text is not None:
             if text == "computer":
                 # for testing
