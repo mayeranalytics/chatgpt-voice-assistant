@@ -103,7 +103,7 @@ if __name__ == "__main__":
     while True:
         try:
             text = recognize_speech(recognizer, microphone)
-        except:
+        except sr.exceptions.WaitTimeoutError:
             print("Nothing heard...")
             continue
         if text is not None:
@@ -125,3 +125,6 @@ if __name__ == "__main__":
                     play_gtts(response, playback_speed=args.playback_speed)
                 elif args.ttsx3:
                     play_ttsx3(response)
+                else:
+                    raise("error")
+                play_beep()
