@@ -1,2 +1,3 @@
 api.key
 *.mp3
+__pycache__
