@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""This is a very simple ChatGPT-based voice assistant"""
+"""This is a very simple but functional ChatGPT-based voice assistant.
+
+Prerequisites:
+- API key from OpenAPI, stored in file api.key
+- Some beebing sound in file beep.mp3
+
+See README.md
+"""
 import speech_recognition as sr
 import tiktoken
 import pygame
