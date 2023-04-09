@@ -56,7 +56,7 @@ If you use [conda](https://docs.conda.io/en/latest/miniconda.html), do something
 ```bash
 conda create --name bot python=3.9
 conda activate bot
-conda install -c conda-forge tts gtts pygame speechrecognition pyaudio
+conda install -c conda-forge tts gtts pygame speechrecognition pyaudio pydub
 python3 -mpip install pyttsx3 openai tiktoken
 ```
 
