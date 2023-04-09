@@ -51,6 +51,12 @@ Install the following Python packages
 - `openai` (interface to OpenAI's API)
 - `tiktoken` (for token calculations)
 
+Install `espeak`, e.g. on Linux
+
+```bash
+sudo apt install espeak
+```
+
 If you use [conda](https://docs.conda.io/en/latest/miniconda.html), do something like this:
 
 ```bash

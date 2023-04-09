@@ -59,7 +59,11 @@ class Chat:
 def play_beep():
     """Play a beep sound"""
     pygame.mixer.init()
-    pygame.mixer.music.load("beep.mp3") # Download something here, for example: https://www.trekcore.com/audio/
+    try:
+        pygame.mixer.music.load("beep.mp3") # Download something here, for example: https://www.trekcore.com/audio/
+    except:
+        print("Cannot load beep.mp3. You need to get a beep sound. See README.md")
+        sys.exit(1)
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
         time.sleep(0.1)
