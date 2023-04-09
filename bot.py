@@ -6,7 +6,12 @@ import pygame
 import time
 import openai
 from tts import *
-openai.api_key = open('api.key', 'r').read().strip()    # put your OpenAPI key into the file api.key
+import sys
+try:
+    openai.api_key = open('api.key', 'r').read().strip()    # put your OpenAPI key into the file api.key
+except FileNotFoundError:
+    print("File api.key not found.\nYou need to get an API key from OpenAI and store it in api.key.\nVisit https://platform.openai.com/account/api-keys")
+    sys.exit(1)
 
 class Chat:
     """Wraps the interaction with the API"""
