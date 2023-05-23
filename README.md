@@ -51,19 +51,13 @@ Install the following Python packages
 - `openai` (interface to OpenAI's API)
 - `tiktoken` (for token calculations)
 
-Install `espeak`, e.g. on Linux
-
-```bash
-sudo apt install espeak
-```
-
 If you use [conda](https://docs.conda.io/en/latest/miniconda.html), do something like this:
 
 ```bash
 conda create --name bot python=3.9
 conda activate bot
-conda install -c conda-forge tts gtts pygame speechrecognition pyaudio pydub
-python3 -mpip install pyttsx3 openai tiktoken
+conda install -c conda-forge gtts pygame speechrecognition pyaudio
+python3 -mpip install pyttsx3 openai tiktoken tts
 ```
 
 Note that the first time you run `bot.py` it will take some time to load the libraries.
